@@ -1,24 +1,40 @@
 <?php
 
-class User{
+require './DBconfig/config.php';
 
-    private $ID;
-    private $name;
-    private $email;
-    private $password;
+class UserDAO{
 
-    public function __construct()
-    {
-        
-    }
+    public static function login($emailInput, $passwordInput){
 
-    public function login(){
+        $statement = "SELECT * FROM users WHERE email=$emailInput AND password=$passwordInput";
+
+        $connect = dbConnect();
+
+        if ($result = $connect->query($statement)){
+            return $result;
+            $connect->close();
+        }
+        else {
+            die("Connection failed: " . $connect->error);
+        }
 
     }
     public function logout(){
         
     }
-    public function register(){
-        
+    public static function register($nameInput, $emailInput, $passwordInput){
+
+        $statement = "INSERT INTO users (name, email, password)".
+        "VALUES ('$nameInput', '$emailInput', '$passwordInput')";
+
+        $connect = dbConnect();
+
+        if ($result = $connect->query($statement)){
+            return $result;
+            $connect->close();
+        }
+        else {
+            die("Connection failed: " . $connect->error);
+        }
     }
 }

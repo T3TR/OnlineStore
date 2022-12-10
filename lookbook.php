@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHARPSIDE</title>
+    <title>SHARPSIDE-Browse</title>
 </head>
 <body>
 
@@ -19,6 +19,12 @@
         <div><a href="./about.php">ABOUT</a></div>
         <div><a href="./contact.php">CONTACT</a></div>
     </header>
+
+    <div>
+        <a href="login.php"><button>Login</button></a>
+        <a href="register.php"><button>Register</button></a>
+        <a href="login.php"><button>Logout</button></a>
+    </div>
     
 </body>
 </html>

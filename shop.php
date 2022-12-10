@@ -15,7 +15,7 @@ require './Classes/item.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHARPSIDE</title>
+    <title>SHARPSIDE-Shop</title>
 </head>
 <body>
 
@@ -25,11 +25,17 @@ require './Classes/item.php';
         <div><a href="./lookbook.php">BROWSE</a></div>
         <div><a href="./about.php">ABOUT</a></div>
         <div><a href="./contact.php">CONTACT</a></div>
+
+        <div>
+            <a href="login.php"><button>Login</button></a>
+            <a href="register.php"><button>Register</button></a>
+            <a href="login.php"><button>Logout</button></a>
+        </div>
     </header>
 
     <div>
         <form method="post">
-            <button name="All" type="submit" value="1">All</button>
+            <button name="All" type="submit">All</button>
             <button name="European" type="submit" value="1">European</button>
             <button name="Japanese" type="submit" value="2">Japanese</button>
             <button name="Chinese" type="submit" value="3">Chinese</button>
@@ -64,6 +70,9 @@ require './Classes/item.php';
         $resultItems = ItemDAO::getItemsByOrigin($origin);
     }
     elseif(isset($_POST["All"])){
+        $resultItems = ItemDAO::getAllItems();
+    }
+    else{
         $resultItems = ItemDAO::getAllItems();
     }
 
