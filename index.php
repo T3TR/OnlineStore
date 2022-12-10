@@ -1,4 +1,7 @@
-<?php
+<?php  
+
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
 
 ?>
 
@@ -19,6 +22,8 @@
         <div><a href="./about.php">ABOUT</a></div>
         <div><a href="./contact.php">CONTACT</a></div>
     </header>
+
+    <?php ?>
     
 </body>
 </html>

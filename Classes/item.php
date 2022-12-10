@@ -10,41 +10,41 @@ class Item{
     private $origID;
     private $stockCount;
 
-    public function __construct()
-    {
-        
+    public function __construct($row){
+        $this->ID=$row['ID'];
+        $this->name=$row['name'];
+        $this->image=$row['image'];
+        $this->description=$row['description'];
+        $this->price=$row['price'];
+        $this->origID=$row['originID'];
+        $this->stockCount=$row['stockCount'];
     }
 
-    public function displayItems(){
-
-        for($i = 0 ; $i < ; $i++){
-
-            $item = new Item;
-
+    public function displayItem(){
+    
             $display = <<< DELIMITER
             
             <div>
             <form method="GET">
                 <div class="itemImage">
-                    <img src="" alt="">
+                    <img src="$this->image" alt="$this->name">
                 </div>
-
+    
                 <div class="ItemName">
-                    <h6></h6>
+                    <h4>$this->name</h4>
                 </div>
-
+    
                 <div class="itemInfo">
-                    <div class="itemStock"></div>
-                    <div class="itemPrice"></div>
+                    <div class="itemStock">Stock: $this->stockCount</div>
+                    <div class="itemPrice">R$this->price</div>
                 </div>
             </form>
-        </div>
-
+            </div>
+    
             DELIMITER;
-        }
-
-        echo $diplay;
-
+    
+        return $display;
+    
     }
 
 }
