@@ -6,7 +6,7 @@ require_once './DAOClasses/itemDAO.php';
 
 class Cart{
 
-    public $userID;
+    private $userID;
     private $items;
 
     public function __construct($userID){

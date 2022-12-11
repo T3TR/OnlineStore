@@ -17,4 +17,33 @@ class CartItem{
         $item = ItemDAO::getOneItem($row['itemID']);
         $this->item = new Item($item);
     }
+
+    public static function displayCartItems(){
+
+        $display = <<< DELIMITER
+
+            <li>
+                <div class="cartItem">
+                    <form method="post">
+                        <div class="itemName">
+                            <p></p>
+                        </div>
+
+                        <div class="amountInCart">
+                            <p></p>
+                        </div>
+
+                        <div class="price">
+                            <p></p>
+                        </div>
+                    </form>
+                </div>
+            </li>
+        
+        DELIMITER;
+
+        return $display;
+
+
+    }
 }

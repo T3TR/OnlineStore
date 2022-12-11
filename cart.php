@@ -41,6 +41,10 @@ session_start();
             <li><a href="./contact.php"><button class="button-84">CONTACT</button></a></li>
         </ul>
     </header>
+
+    <ul>
+        
+    </ul>
     
 </body>
 </html>

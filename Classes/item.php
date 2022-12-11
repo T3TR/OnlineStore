@@ -37,7 +37,7 @@ class Item{
             
             <li>
                 <div class="itemCard">
-                    <form method="GET">
+                    <form method="post">
                         <div class="itemImage">
                             <img class="itemImgEl" src="$this->image" alt="$this->name">
                         </div>
