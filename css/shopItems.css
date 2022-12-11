@@ -1,0 +1,49 @@
+.filter {
+    text-align: center;
+}
+
+.cardsList {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.cardsList li {
+    display: inline-block;
+}
+
+.itemCard {
+    margin: 2rem;
+    background: rgb(120, 120, 120);
+    max-width: 15rem;
+    max-height: 35rem;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+.itemImage {
+    width: 15rem;
+    height: 27rem;
+}
+
+.itemImgEl {
+    width: 14.6rem;
+    height: 27rem;
+    display: block;
+    object-fit: cover;
+}
+
+.itemName {
+    text-align: center;
+}
+
+.itemName h1 {
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.itemAdd{
+   position: relative;
+   left: 3.9rem;
+   bottom: 0.2rem;
+}

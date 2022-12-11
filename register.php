@@ -4,18 +4,19 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 session_start();
 
-require './DAOClasses/userDAO.php';
+require_once './Classes/user.php';
 
 if(isset($_POST["register"])){
 
-    $_SESSION["name"] = $_POST["name"];
-    $_SESSION["email"] = $_POST["email"];
-    $_SESSION["password"] = $_POST["password"];
-    $_SESSION["congrats"] = "You've successfully registered your account, please login.";
+    $reg_result = User::register($_POST["name"], $_POST["email"], $_POST["password"]);
 
-    UserDAO::register($_POST["name"], $_POST["email"], $_POST["password"]);
+    if($reg_result == ""){
+        header("Location: login.php");
+    }
+    else{
+        echo $reg_result;
+    }
 
-    header("Location: login.php");
 }
 
 ?>
@@ -27,15 +28,23 @@ if(isset($_POST["register"])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHARPSIDE-Register</title>
+
+    <link rel="stylesheet" href="./css/register.css">
+
 </head>
 <body>
 
-    <div>
+    <div class="registerForm">
         <form action="register.php" method="post">
-            <input name="name" type="text" placeholder="Enter Your Name">
-            <input name="email" type="email" placeholder="Enter Your Email">
-            <input name="password" type="password" placeholder="Enter Your Password">
-            <button name="register" type="submit">Register</button>
+            <img class="logo" src="./images/Logo.png" alt="SHARPSIDE">
+            <h1>Name</h1>
+            <input name="name" type="text" placeholder="Enter Your Name" required>
+            <h1>Email</h1>
+            <input name="email" type="email" placeholder="Enter Your Email" required>
+            <h1>Password</h1>
+            <input name="password" type="password" placeholder="Enter Your Password" required>
+            <button name="register" class="button-59" type="submit">Register</button>
+            <p class="login">Already have an account? <a href="./login.php">Login!</a></p>
         </form>
     </div>
     

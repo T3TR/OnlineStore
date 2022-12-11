@@ -1,6 +1,6 @@
 <?php
 
-require './DBconfig/config.php';
+require_once './DBconfig/config.php';
 
 class ItemDAO{
 
@@ -46,13 +46,29 @@ class ItemDAO{
         $connect = dbConnect();
 
         if ($result = $connect->query($statement)){
-            return $result;
+            return $result->fetch_assoc();
             $connect->close();
         }
         else {
             die("Connection failed: " . $connect->error);
         }
 
+
+    }
+
+    public static function updateItemAmount($itemID, $amount){
+
+        $connect = dbConnect();
+
+        $statement = "UPDATE items SET stockCount=$amount WHERE itemID=$itemID";
+
+        if ($result = $connect->query($statement)){
+            return $result;
+            $connect->close();
+        }
+        else {
+            die("Connection failed: " . $connect->error);
+        }
 
     }
 

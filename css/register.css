@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: rgb(80, 80, 80);
+    display: flex;
+    justify-content: center;
+    margin-top: 30%;
+}
+
+.registerForm {
+    margin: 0;
+    width: 375px;
+    height: 625px;
+    background: rgb(120, 120, 120);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 7px;
+}
+
+.logo {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.registerForm h1{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.registerForm input {
+    margin: 5%;
+}
+
+.login {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 10%;
+}
+
+
+
+
+.button-59{
+    align-items: center;
+    background-color: rgb(130, 0, 0);
+    border: 2px solid #000;
+    box-sizing: border-box;
+    color: #000;
+    cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    min-width: 140px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-59:focus {
+    color: #171e29;
+  }
+  
+  .button-59:hover {
+    border-color: rgb(120, 120, 120);
+    color: rgb(120, 120, 120);
+    fill: rgb(130, 0, 0);
+  }
+  
+  .button-59:active {
+    border-color: rgb(120, 120, 120);
+    color: rgb(120, 120, 120);
+    fill: rgb(130, 0, 0);
+  }
+  
+  @media (min-width: 768px) {
+    .button-59 {
+      min-width: 170px;
+    }
+  }

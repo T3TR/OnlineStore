@@ -9,21 +9,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHARPSIDE-About</title>
+
+    <link rel="stylesheet" href="./css/stylesheet.css">
+
 </head>
 <body>
 
     <header>
-        <h1>SHARPSIDE</h1>
-        <div><a href="./index.php">HOME</a></div>
-        <div><a href="./shop.php">SHOP</a></div>
-        <div><a href="./lookbook.php">BROWSE</a></div>
-        <div><a href="./contact.php">CONTACT</a></div>
+    <div class="logo-log">
+            <div>
+                <img src="./images/Logo.png" alt="SHARPSIDE">
+                <div class="log-reg">  
+                    <? if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true): ?>
+                        <a href="login.php"><button class="button-59">Logout</button></a>
+                    <? else: ?>
+                        <a href="login.php"><button class="button-59">Login</button></a>
+                    <? endif; ?>
+                </div>
+            </div>
+        </div>
+
+        <ul class="nav">
+            <li><a href="./index.php"><button class="button-84">HOME</button></a></li>
+            <li><a href="./shop.php"><button class="button-84">SHOP</button></a></li>
+            <li><a href="./lookbook.php"><button class="button-84">BROWSE</button></a></li>
+            <li><a href="./contact.php"><button class="button-84">CONTACT</button></a></li>
+            <li><a href="./cart.php"><button class="button-84">CART</button></a></li>
+        </ul>
     </header>
-    
-    <div>
-        <a href="login.php"><button>Login</button></a>
-        <a href="register.php"><button>Register</button></a>
-        <a href="login.php"><button>Logout</button></a>
-    </div>
 </body>
 </html>
