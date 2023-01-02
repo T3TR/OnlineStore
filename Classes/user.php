@@ -31,13 +31,13 @@ class User{
 
         }
         else{
-            $log_failed = "Your email and password were entered incorrect, please try again.";
+            $log_failed = "Your email and password were entered incorrectly, please try again.";
             return $log_failed;
         }
 
     }
 
-    public function logout(){
+    public static function logout(){
 
         unset($_SESSION["userID"]);
         unset($_SESSION["userName"]);

@@ -51,7 +51,7 @@ class Item{
                             <div class="itemStock">Stock: $stock</div>
                         </div>
                         <div class="itemAdd">
-                            <button class="button-59">Add To Cart</button>
+                            <button name="addToCart" class="button-59" type="submit">Add To Cart</button>
                         </div>
                     </form>
                 </div>
@@ -63,4 +63,46 @@ class Item{
     
     }
 
+
+
+    public function getID()
+    {
+        return $this->ID;
+    }
+
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+
+    public function getOrigID()
+    {
+        return $this->origID;
+    }
+
+    
+    public function getStockCount()
+    {
+        return $this->stockCount;
+    }
 }

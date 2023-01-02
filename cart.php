@@ -4,6 +4,18 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 session_start();
 
+require_once './Classes/cart.php';
+require_once './Classes/app.php';
+require_once './Classes/user.php';
+
+if(isset($_POST['logout'])){
+    User::logout();
+    header("Location: login.php");
+}
+if(isset($_POST['login'])){
+    header("Location: login.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -24,11 +36,13 @@ session_start();
             <div>
                 <img src="./images/Logo.png" alt="SHARPSIDE">
                 <div class="log-reg">  
+                    <form method="post">
                     <? if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true): ?>
-                        <a href="login.php"><button class="button-59">Logout</button></a>
+                        <a href="login.php"><button name="logout" class="button-59">Logout</button></a>
                     <? else: ?>
-                        <a href="login.php"><button class="button-59">Login</button></a>
+                        <a href="login.php"><button name="login" class="button-59">Login</button></a>
                     <? endif; ?>
+                    </form>
                 </div>
             </div>
         </div>
@@ -42,9 +56,31 @@ session_start();
         </ul>
     </header>
 
-    <ul>
+    <div class="cartCards">
+        <ul class="cartItemList">
+
+            <?php
+
+                if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true){
+
+                    $cart->displayCart();
+                }
+                else{
+                    
+                    $display = <<<DELIMITER
+
+                    <div class="emptyCart">
+                        <p>Login to view your cart</p>
+                    <div>
+
+
+                    DELIMITER;
+                }
+
+            ?>
         
-    </ul>
+        </ul>
+    </div>
     
 </body>
 </html>

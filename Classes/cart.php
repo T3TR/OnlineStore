@@ -18,6 +18,7 @@ class Cart{
         }
     }
 
+
     public static function addToCart($userID, $itemID){
 
         $cartItem = CartDAO::getItemforUser($userID, $itemID);
@@ -49,13 +50,14 @@ class Cart{
         }
     }
 
+
     public function checkout(){
 
-        for($i= 0; $i < count($this->items); $i++){
+        for($i = 0; $i < count($this->items); $i++){
             $item = $this->items[$i];
             $amount = $item->amount;
-            $stockCount = $item->item->stockCount;
-            $itemID = $item->item->ID;
+            $stockCount = $item->item->getStockCount();
+            $itemID = $item->item->getID();
 
             if($stockCount >= $amount){
                 ItemDAO::updateItemAmount($itemID, $stockCount - $amount);
@@ -64,4 +66,46 @@ class Cart{
         }
 
     }
+
+
+    public function displayCart(){
+
+        for($i = 0; $i < count($this->items); $i++){
+
+            $item = $this->items[$i];
+            $cartItem = CartDAO::getItemforUser($this->userID, $item->getItem()->getID());
+
+            $itemName = $item->getItem()->getName();
+            $itemAmount = $cartItem['amount'];
+            $itemPrice = $item->getItem()->getPrice();
+            
+
+            $display = <<< DELIMITER
+
+                <li>
+                    <div class="cartItem">
+                        <form method="post">
+                            <div class="itemName">
+                                <p>$itemName</p>
+                            </div>
+
+                            <div class="amountInCart">
+                                <p>$itemAmount</p>
+                            </div>
+
+                            <div class="price">
+                                <p>$itemPrice</p>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+        
+            DELIMITER;
+
+            return $display;
+
+        }
+    }
+
+
 }

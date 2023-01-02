@@ -18,7 +18,9 @@ class CartItem{
         $this->item = new Item($item);
     }
 
-    public static function displayCartItems(){
+    public function displayCartItem(){
+
+        
 
         $display = <<< DELIMITER
 
@@ -45,5 +47,11 @@ class CartItem{
         return $display;
 
 
+    }
+
+
+    public function getItem()
+    {
+        return $this->item;
     }
 }
