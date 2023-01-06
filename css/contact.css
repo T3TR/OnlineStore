@@ -1,0 +1,32 @@
+.contact {
+    background: rgb(120, 120, 120);
+    border: 3px solid black;
+    border-radius: 5px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.map {
+    width: 620px;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
+.socials {
+    width: 620px;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+}
+
+.socialsList {
+    list-style-type: none;
+}

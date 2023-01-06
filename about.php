@@ -51,7 +51,11 @@ if(isset($_POST['login'])){
             <li><a href="./shop.php"><button class="button-84">SHOP</button></a></li>
             <li><a href="./lookbook.php"><button class="button-84">BROWSE</button></a></li>
             <li><a href="./contact.php"><button class="button-84">CONTACT</button></a></li>
-            <li><a href="./cart.php"><button class="button-84">CART</button></a></li>
+            <? if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true): ?>
+                <li><a href="./cart.php"><button class="button-84">CART (<?php echo $_SESSION['inCart'] ?>)</button></a></li>
+            <? else: ?>
+                <li><a href="./cart.php"><button class="button-84">CART</button></a></li>
+            <? endif; ?>
         </ul>
     </header>
 </body>

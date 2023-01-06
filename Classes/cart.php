@@ -55,9 +55,9 @@ class Cart{
 
         for($i = 0; $i < count($this->items); $i++){
             $item = $this->items[$i];
-            $amount = $item->amount;
-            $stockCount = $item->item->getStockCount();
-            $itemID = $item->item->getID();
+            $amount = $item->getAmount();
+            $stockCount = $item->getItem()->getStockCount();
+            $itemID = $item->getItem()->getID();
 
             if($stockCount >= $amount){
                 ItemDAO::updateItemAmount($itemID, $stockCount - $amount);
@@ -67,45 +67,113 @@ class Cart{
 
     }
 
-
-    public function displayCart(){
+    public function inCart(){
+        
+        $inCart = 0;
 
         for($i = 0; $i < count($this->items); $i++){
 
             $item = $this->items[$i];
             $cartItem = CartDAO::getItemforUser($this->userID, $item->getItem()->getID());
-
-            $itemName = $item->getItem()->getName();
-            $itemAmount = $cartItem['amount'];
-            $itemPrice = $item->getItem()->getPrice();
-            
-
-            $display = <<< DELIMITER
-
-                <li>
-                    <div class="cartItem">
-                        <form method="post">
-                            <div class="itemName">
-                                <p>$itemName</p>
-                            </div>
-
-                            <div class="amountInCart">
-                                <p>$itemAmount</p>
-                            </div>
-
-                            <div class="price">
-                                <p>$itemPrice</p>
-                            </div>
-                        </form>
-                    </div>
-                </li>
         
-            DELIMITER;
-
-            return $display;
-
+            $itemAmount = $cartItem['amount'];
+            $inCart = $inCart + $itemAmount;
         }
+
+        return $inCart;
     }
 
 
+    public function displayCart(){
+
+        $totalItemsInCart = 0;
+        $cartTotal = 0;
+
+        if(count($this->items) > 0){
+
+            for($i = 0; $i < count($this->items); $i++){
+
+                $item = $this->items[$i];
+                $cartItem = CartDAO::getItemforUser($this->userID, $item->getItem()->getID());
+
+                $itemName = $item->getItem()->getName();
+                $itemAmount = $cartItem['amount'];
+                $totalItemsInCart = $totalItemsInCart + $itemAmount;
+                $itemPrice = $item->getItem()->getPrice();
+                $itemID = $item->getItem()->getID();
+
+                $cartTotal = $cartTotal + ($itemPrice * $itemAmount);
+
+                $display = <<< DELIMITER
+
+                    <li>
+                        <div class="cartCard">
+                            <form method="post">
+                                <div class="itemName">
+                                    <h1>$itemName</h1>
+                                </div>
+
+                                <div class="amountInCart">
+                                    <p>In Cart: $itemAmount</p>
+                                </div>
+
+                                <div class="price">
+                                    <p>R$itemPrice ea</p>
+                                </div>
+                                <div class="removeFromCart">
+                                    <button name="removeFromCart" class="button-59" type="submit" value="$itemID">Remove From Cart</button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+            
+                DELIMITER;
+                echo $display;
+
+            }
+        }
+        else{
+            $display = <<< DELIMITER
+
+                <li>
+                    <div class="cartEmpty">
+                        <h1>Your Cart is Empty</h1>
+                    </div>
+                </li>
+
+            DELIMITER;
+            echo $display;
+        }
+
+        $cartInfo = <<< DELIMITER
+
+            <li>
+                <div class="cartInfo">
+                    <form method="post">
+                        <div class="totalItemsInCart">
+                            <p>Total Items in your Cart: $totalItemsInCart</p>
+                        </div>
+
+                        <div class="cartTotal">
+                            <p>Total Price: R$cartTotal</p>
+                        </div>
+
+                        <div class="chechout">
+                            <button name="checkout" class="button-84" type="submit">Proceed to Checkout</button>
+                        </div>
+                    </form>
+                </div>
+            </li>
+
+        DELIMITER;
+
+        echo $cartInfo;
+    }
+
+
+
+    public function getItems()
+    {
+        return $this->items;
+    }
 }

@@ -1,0 +1,61 @@
+.cartItemList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cartCard {
+    background: rgb(120, 120, 120);
+    border: 3px solid black;
+    border-radius: 5px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.itemName {
+    display: inline-block;
+    margin-left: 1rem;
+}
+.amountInCart {
+    display: inline-block;
+    margin-left: 1rem;
+}
+.price {
+    display: inline-block;
+    margin-left: 1rem;
+}
+.removeFromCart {
+    display: inline-block;
+    padding-left: 2rem;
+}
+
+.itemName h1 {
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.cartInfo {
+    background: rgb(120, 120, 120);
+    border: 3px solid black;
+    border-radius: 5px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.totalItemsInCart {
+    display: inline-block;
+    padding-left: 1rem;
+}
+.cartTotal {
+    display: inline-block;
+    padding-left: 1rem;
+}
+.chechout {
+    display: inline-block;
+    padding-left: 2rem;
+    padding-top: 1px;
+}
+
+.cartEmpty {
+    text-align: center;
+}

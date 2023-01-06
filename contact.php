@@ -26,6 +26,7 @@ if(isset($_POST['login'])){
     <title>SHARPSIDE-Contact</title>
 
     <link rel="stylesheet" href="./css/stylesheet.css">
+    <link rel="stylesheet" href="./css/contact.css">
 
 </head>
 <body>
@@ -51,9 +52,38 @@ if(isset($_POST['login'])){
             <li><a href="./shop.php"><button class="button-84">SHOP</button></a></li>
             <li><a href="./lookbook.php"><button class="button-84">BROWSE</button></a></li>
             <li><a href="./about.php"><button class="button-84">ABOUT</button></a></li>
-            <li><a href="./cart.php"><button class="button-84">CART</button></a></li>
+            <? if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true): ?>
+                <li><a href="./cart.php"><button class="button-84">CART (<?php echo $_SESSION['inCart'] ?>)</button></a></li>
+            <? else: ?>
+                <li><a href="./cart.php"><button class="button-84">CART</button></a></li>
+            <? endif; ?>
         </ul>
     </header>
+
+
+    <div class="contact">
+        <div class="heading">
+            <h1>Contact Us</h1>
+        </div>
+        <div class="phone">
+            <p>Phone: 0210001111</p>
+        </div>
+        <div class="email">
+            <p>Email: contact-us@sharpside.co.za</p>
+        </div>
+        <div>
+            <p>Site URL: localhost/OnlineStore/index.php</p>
+        </div>
+        <div class="socials">
+            <ul class="socialsList">
+                <li>Visit our <a href="www.instagram.com">Insta</a>.</li>
+                <li>Visit our <a href="www.facebook.com">Facebook</a>.</li>
+            </ul>
+        </div>
+        <div class="map">
+            <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=73%20glen%20alpine%20road&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net">google maps websites</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>
+        </div>
+    </div>
     
 </body>
 </html>

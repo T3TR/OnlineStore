@@ -8,6 +8,7 @@ require_once './DAOClasses/itemDAO.php';
 require_once './Classes/item.php';
 require_once './Classes/app.php';
 require_once './Classes/user.php';
+require_once './Classes/cart.php';
 
 if(isset($_POST['logout'])){
     User::logout();
@@ -18,6 +19,17 @@ if(isset($_POST['login'])){
 }
 
 if(isset($_POST["addToCart"])){
+
+    if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true){
+
+        Cart::addToCart($_SESSION['userID'], $_POST['addToCart']);
+        header("Location: shop.php");
+
+
+    }
+    else{
+        header("Location: login.php"); 
+    }
 
 }
 
@@ -58,7 +70,11 @@ if(isset($_POST["addToCart"])){
             <li><a href="./lookbook.php"><button class="button-84">BROWSE</button></a></li>
             <li><a href="./about.php"><button class="button-84">ABOUT</button></a></li>
             <li><a href="./contact.php"><button class="button-84">CONTACT</button></a></li>
-            <li><a href="./cart.php"><button class="button-84">CART</button></a></li>
+            <? if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true): ?>
+                <li><a href="./cart.php"><button class="button-84">CART (<?php echo $_SESSION['inCart'] ?>)</button></a></li>
+            <? else: ?>
+                <li><a href="./cart.php"><button class="button-84">CART</button></a></li>
+            <? endif; ?>
         </ul>
     </header>
 

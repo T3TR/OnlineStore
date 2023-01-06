@@ -16,6 +16,18 @@ if(isset($_POST['login'])){
     header("Location: login.php");
 }
 
+if(isset($_POST['removeFromCart'])){
+
+    Cart::removeFromCart($_SESSION['userID'], $_POST['removeFromCart']);
+    header("Location: cart.php");
+
+}
+
+if(isset($_POST['checkout'])){
+    $cart->checkout();
+    header("Location: index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +39,7 @@ if(isset($_POST['login'])){
     <title>SHARPSIDE-Cart</title>
 
     <link rel="stylesheet" href="./css/stylesheet.css">
+    <link rel="stylesheet" href="./css/cartItems.css">
 
 </head>
 <body>
@@ -69,12 +82,16 @@ if(isset($_POST['login'])){
                     
                     $display = <<<DELIMITER
 
-                    <div class="emptyCart">
-                        <p>Login to view your cart</p>
-                    <div>
+                    <li>
+                        <div class="cartEmpty">
+                            <h1>Please login to view your cart.</h1>
+                        <div>
+                    </li>
 
 
                     DELIMITER;
+
+                    echo $display;
                 }
 
             ?>

@@ -54,4 +54,9 @@ class CartItem{
     {
         return $this->item;
     }
+
+    public function getAmount()
+    {
+        return $this->amount;
+    }
 }

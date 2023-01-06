@@ -32,7 +32,10 @@ class Item{
 
     public function displayItem(){
 
-            $stock = $this->checkStock($this->stockCount);
+            $stock = $this->stockCount;
+
+            if($stock > 0){
+
             $display = <<< DELIMITER
             
             <li>
@@ -51,7 +54,7 @@ class Item{
                             <div class="itemStock">Stock: $stock</div>
                         </div>
                         <div class="itemAdd">
-                            <button name="addToCart" class="button-59" type="submit">Add To Cart</button>
+                            <button name="addToCart" class="button-59" type="submit" value="$this->ID">Add To Cart</button>
                         </div>
                     </form>
                 </div>
@@ -59,7 +62,35 @@ class Item{
     
             DELIMITER;
     
-        return $display;
+            return $display;
+            }
+            else{
+
+            $display = <<< DELIMITER
+            
+            <li>
+                <div class="itemCard">
+                    <form method="post">
+                        <div class="itemImage">
+                            <img class="itemImgEl" src="$this->image" alt="$this->name">
+                        </div>
+
+                        <div class="itemName">
+                            <h1>$this->name</h1>
+                        </div>
+
+                        <div class="itemInfo">
+                            <h2 style="color:red;">OUT OF STOCK</h2>
+                        </div>
+                    </form>
+                </div>
+            </li>
+    
+            DELIMITER;
+    
+            return $display;
+
+            }
     
     }
 

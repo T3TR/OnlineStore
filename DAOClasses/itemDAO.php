@@ -60,7 +60,7 @@ class ItemDAO{
 
         $connect = dbConnect();
 
-        $statement = "UPDATE items SET stockCount=$amount WHERE itemID=$itemID";
+        $statement = "UPDATE items SET stockCount=$amount WHERE ID=$itemID";
 
         if ($result = $connect->query($statement)){
             return $result;

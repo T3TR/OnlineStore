@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 11, 2022 at 08:34 PM
+-- Generation Time: Jan 06, 2023 at 01:22 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.1.0
 
@@ -34,13 +34,6 @@ CREATE TABLE `cart_items` (
   `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `cart_items`
---
-
-INSERT INTO `cart_items` (`ID`, `userID`, `itemID`, `amount`) VALUES
-(1, 1, 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -62,20 +55,20 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`ID`, `name`, `image`, `description`, `price`, `originID`, `stockCount`) VALUES
-(1, 'Ulfberht', './images/euUlfberht.png', '', 12000, 1, 15),
-(2, 'Messer', './images/euMesser.png', '', 9000, 1, 25),
-(3, 'Gladius', './images/euGladius.png', '', 18000, 1, 10),
-(4, 'Kopis', './images/euKopis.png', '', 7000, 1, 35),
-(5, 'Rapier', './images/euRapier.png', '', 28000, 1, 5),
-(6, 'Leaf Blade', './images/euLeaf.png', '', 16000, 1, 15),
-(7, 'Claymore', './images/euClaymore.png', '', 11000, 1, 20),
-(8, 'Tanto', './images/jaTanto.png', '', 3000, 2, 25),
-(9, 'Wakizashi', './images/jaWakizashi.png', '', 8000, 2, 20),
-(10, 'Katana', './images/jaKatana.png', '', 14000, 2, 25),
-(11, 'Dao', './images/chDao.png', '', 6000, 3, 40),
-(12, 'Jian', './images/chJian.png', '', 20000, 3, 15),
-(13, 'Scimitar', './images/meScimitar.png', '', 7000, 4, 20),
-(14, 'Kophesh', './images/meKophesh.png', '', 13000, 4, 15);
+(1, 'Ulfberht', './images/euUlfberht.png', '', 3900, 1, 14),
+(2, 'Messer', './images/euMesser.png', '', 4900, 1, 25),
+(3, 'Gladius', './images/euGladius.png', '', 6270, 1, 10),
+(4, 'Kopis', './images/euKopis.png', '', 2250, 1, 35),
+(5, 'Rapier', './images/euRapier.png', '', 9350, 1, 5),
+(6, 'Leaf Blade', './images/euLeaf.png', '', 5300, 1, 15),
+(7, 'Claymore', './images/euClaymore.png', '', 7650, 1, 20),
+(8, 'Tanto', './images/jaTanto.png', '', 1100, 2, 25),
+(9, 'Wakizashi', './images/jaWakizashi.png', '', 2750, 2, 20),
+(10, 'Katana', './images/jaKatana.png', '', 4800, 2, 25),
+(11, 'Dao', './images/chDao.png', '', 2400, 3, 40),
+(12, 'Jian', './images/chJian.png', '', 6500, 3, 15),
+(13, 'Scimitar', './images/meScimitar.png', '', 2450, 4, 20),
+(14, 'Kophesh', './images/meKophesh.png', '', 4450, 4, 15);
 
 -- --------------------------------------------------------
 
@@ -95,11 +88,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `name`, `email`, `password`) VALUES
-(1, 'Daniel', 'baba@gmail.com', '123455'),
-(2, 'asda', 'oiurgboiegn@gmail.com', '1234566'),
-(3, 'rhhr', 'awfeWF@gmail.com', '12344'),
-(4, 'thtk', 'hbiavebgkbueaQ@gmail.com', '123455'),
-(5, 'rehgtrjh', 'sergeg@gmail.com', '12345678');
+(6, 'Daniel', 'baba@gmail.com', '123455');
 
 --
 -- Indexes for dumped tables
@@ -131,7 +120,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `items`
@@ -143,7 +132,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
