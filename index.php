@@ -6,6 +6,8 @@ session_start();
 
 require_once './Classes/app.php';
 require_once './Classes/user.php';
+require_once './DAOClasses/itemDAO.php';
+require_once './Classes/item.php';
 
 if(isset($_POST['logout'])){
     User::logout();
@@ -15,6 +17,20 @@ if(isset($_POST['login'])){
     header("Location: login.php");
 }
 
+if(isset($_POST["addToCart"])){
+
+    if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true){
+
+        Cart::addToCart($_SESSION['userID'], $_POST['addToCart']);
+        header("Location: index.php");
+
+
+    }
+    else{
+        header("Location: login.php");
+    }
+
+}
 
 ?>
 
@@ -28,6 +44,8 @@ if(isset($_POST['login'])){
     <title>SHARPSIDE-Home</title>
 
     <link rel="stylesheet" href="./css/stylesheet.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/shopItems.css">
 
 </head>
 <body>
@@ -61,12 +79,43 @@ if(isset($_POST['login'])){
         </ul>
     </header>
 
-    
+    <div class="banner">
+        <img class="bannerIMG" src="./images/heroBannner.png" alt="Banner">
+    </div>
 
-    <?php
-
     
-    ?>
+    <div class="section">
+        <h1 class="sectionTitle">RECENT ADDITIONS</h1>
+
+        <div class="cards">
+            <ul class="cardsList">
+                <?php
+                $recentAdditions = ItemDAO::recentlyAdded();
+
+                while($row = $recentAdditions->fetch_assoc()) {
+                    $item = new Item($row);
+                    echo $item->displayItem();
+                }
+                ?>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h1 class="sectionTitle">FEATURED</h1>
+        <div class="cards">
+            <ul class="cardsList">
+                <?php
+                $featured = ItemDAO::featuredItem();
+
+                while($row = $featured->fetch_assoc()) {
+                    $item = new Item($row);
+                    echo $item->displayItem();
+                }
+                ?>
+            </ul>
+        </div>
+    </div>
     
 </body>
 </html>

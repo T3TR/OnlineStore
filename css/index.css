@@ -1,0 +1,21 @@
+.banner {
+    width: 100%;
+}
+
+.bannerIMG {
+    width: 100%;
+    object-fit: fill;
+}
+
+.section {
+    background: rgb(120, 120, 120);
+    border: 3px solid black;
+    border-radius: 7px;
+    margin: 1rem;
+}
+
+.sectionTitle {
+    text-align: center;
+    color: rgb(130, 0, 0);
+    text-decoration: underline;
+}

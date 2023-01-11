@@ -26,6 +26,7 @@ if(isset($_POST['login'])){
     <title>SHARPSIDE-About</title>
 
     <link rel="stylesheet" href="./css/stylesheet.css">
+    <link rel="stylesheet" href="./css/about.css">
 
 </head>
 <body>
@@ -58,5 +59,22 @@ if(isset($_POST['login'])){
             <? endif; ?>
         </ul>
     </header>
+
+    <div class="wrapper">
+        <h1 class="aboutTitle">ABOUT</h1>
+        <div class="mission">
+            <h1>Our Mission</h1>
+            <p>We love swords, as such we want to share that love. At Sharpside we made it our mission to give the average Arthur a place they could go and get the hands on one of these beautiful blades with ease!</p>
+        </div>
+        <div class="business">
+            <h1>Our Business</h1>
+            <p>With the desire to get swords out en masse, we decided on a lean business plan with low cost and high quality blades. As such we can deal in large quantities with low profit margins per peice. However we make it back in volume of sales.</p>
+        </div>
+        <div class="team">
+            <h1>Our Team</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam nam accusamus repudiandae perspiciatis accusantium, dignissimos possimus, tempore dolore officia delectus nemo laborum cupiditate et quae architecto nisi? Veritatis, ea fugit! lor</p>
+        </div>
+    </div>
+
 </body>
 </html>

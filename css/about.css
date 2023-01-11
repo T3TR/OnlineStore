@@ -1,0 +1,39 @@
+.wrapper {
+    background: rgb(120, 120, 120);
+    border: 3px solid black;
+    border-radius: 7px;
+    margin: 1rem;
+    text-align: center;
+}
+
+.wrapper p {
+    color: rgb(177, 177, 177);
+    font-style: italic;
+}
+
+.aboutTitle {
+    color: rgb(130, 0, 0);
+    text-decoration: underline;
+}
+
+.mission {
+    background: rgb(80, 80, 80);
+    border: 3px solid black;
+    border-radius: 7px;
+    margin: 1rem;
+}
+
+.business {
+    background: rgb(80, 80, 80);
+    border: 3px solid black;
+    border-radius: 7px;
+    margin: 1rem;
+}
+
+.team {
+    background: rgb(80, 80, 80);
+    border: 3px solid black;
+    border-radius: 7px;
+    margin: 1rem;
+}
+

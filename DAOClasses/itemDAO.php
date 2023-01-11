@@ -72,4 +72,37 @@ class ItemDAO{
 
     }
 
+    public static function recentlyAdded(){
+
+        $connect = dbConnect();
+
+        $statement = "SELECT a.* FROM items a INNER JOIN ( SELECT originID, Max(ID) as mostRecent FROM items GROUP BY originID) b ON a.originID=b.originID AND a.ID = b.mostRecent";
+
+        if ($result = $connect->query($statement)){
+            return $result;
+            $connect->close();
+        }
+        else {
+            die("Connection failed: " . $connect->error);
+        }
+    }
+
+    
+    public static function featuredItem(){
+
+        $connect = dbConnect();
+
+        $statement = "SELECT * FROM `items` ORDER BY stockCount DESC LIMIT 1";
+
+        if ($result = $connect->query($statement)){
+            return $result;
+            $connect->close();
+        }
+        else {
+            die("Connection failed: " . $connect->error);
+        }
+
+    }
+
+
 }
